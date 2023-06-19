@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"struct":["CommitOptions","Failure","Success","Transaction"],"trait":["Transactable"],"type":["Result"]};
