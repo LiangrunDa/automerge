@@ -113,6 +113,15 @@
 <a href="#113" id="113">113</a>
 <a href="#114" id="114">114</a>
 <a href="#115" id="115">115</a>
+<a href="#116" id="116">116</a>
+<a href="#117" id="117">117</a>
+<a href="#118" id="118">118</a>
+<a href="#119" id="119">119</a>
+<a href="#120" id="120">120</a>
+<a href="#121" id="121">121</a>
+<a href="#122" id="122">122</a>
+<a href="#123" id="123">123</a>
+<a href="#124" id="124">124</a>
 </pre></div><pre class="rust"><code><span class="kw">use </span><span class="kw">crate</span>::exid::ExId;
 <span class="kw">use </span><span class="kw">crate</span>::marks::{ExpandMark, Mark};
 <span class="kw">use crate</span>::{AutomergeError, ChangeHash, ObjType, Prop, ReadDoc, ScalarValue};
@@ -223,6 +232,15 @@
         start: usize,
         end: usize,
         expand: ExpandMark,
+    ) -&gt; <span class="prelude-ty">Result</span>&lt;(), AutomergeError&gt;;
+
+    <span class="doccomment">/// Move an element from one position to another
+    </span><span class="kw">fn </span>move_element&lt;O: AsRef&lt;ExId&gt;, P: Into&lt;Prop&gt;&gt;(
+        <span class="kw-2">&amp;mut </span><span class="self">self</span>,
+        src: O,
+        dst: O,
+        src_prop: P,
+        dst_prop: P,
     ) -&gt; <span class="prelude-ty">Result</span>&lt;(), AutomergeError&gt;;
 
     <span class="doccomment">/// The heads this transaction will be based on

@@ -835,6 +835,31 @@
 <a href="#835" id="835">835</a>
 <a href="#836" id="836">836</a>
 <a href="#837" id="837">837</a>
+<a href="#838" id="838">838</a>
+<a href="#839" id="839">839</a>
+<a href="#840" id="840">840</a>
+<a href="#841" id="841">841</a>
+<a href="#842" id="842">842</a>
+<a href="#843" id="843">843</a>
+<a href="#844" id="844">844</a>
+<a href="#845" id="845">845</a>
+<a href="#846" id="846">846</a>
+<a href="#847" id="847">847</a>
+<a href="#848" id="848">848</a>
+<a href="#849" id="849">849</a>
+<a href="#850" id="850">850</a>
+<a href="#851" id="851">851</a>
+<a href="#852" id="852">852</a>
+<a href="#853" id="853">853</a>
+<a href="#854" id="854">854</a>
+<a href="#855" id="855">855</a>
+<a href="#856" id="856">856</a>
+<a href="#857" id="857">857</a>
+<a href="#858" id="858">858</a>
+<a href="#859" id="859">859</a>
+<a href="#860" id="860">860</a>
+<a href="#861" id="861">861</a>
+<a href="#862" id="862">862</a>
 </pre></div><pre class="rust"><code><span class="kw">use </span>std::num::NonZeroU64;
 <span class="kw">use </span>std::rc::Rc;
 
@@ -1572,6 +1597,31 @@
     ) -&gt; <span class="prelude-ty">Result</span>&lt;(), AutomergeError&gt; {
         <span class="kw">let </span>mark = Mark::new(name.to_string(), ScalarValue::Null, start, end);
         <span class="self">self</span>.mark(doc, patch_log, ex_obj, mark, expand)
+    }
+
+    <span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">fn </span>move_element&lt;P: Into&lt;Prop&gt;&gt;(
+        <span class="kw-2">&amp;mut </span><span class="self">self</span>,
+        doc: <span class="kw-2">&amp;mut </span>Automerge,
+        src: <span class="kw-2">&amp;</span>ExId,
+        dst: <span class="kw-2">&amp;</span>ExId,
+        _src_prop: P,
+        _dst_prop: P,
+    ) -&gt; <span class="prelude-ty">Result</span>&lt;(), AutomergeError&gt; {
+        <span class="kw">let </span>src_obj = doc.exid_to_obj(src)<span class="question-mark">?</span>;
+        <span class="kw">let </span>dst_obj = doc.exid_to_obj(dst)<span class="question-mark">?</span>;
+        <span class="comment">// TODO: move from a list or a map
+        </span><span class="kw">match </span>src_obj.typ {
+            ObjType::Map =&gt; (),
+            ObjType::List =&gt; (),
+            <span class="kw">_ </span>=&gt; <span class="kw">return </span><span class="prelude-val">Err</span>(AutomergeError::MoveSourceNotSupported),
+        };
+        <span class="comment">// TODO: move to a list or a map
+        </span><span class="kw">match </span>dst_obj.typ {
+            ObjType::Map =&gt; (),
+            ObjType::List =&gt; (),
+            <span class="kw">_ </span>=&gt; <span class="kw">return </span><span class="prelude-val">Err</span>(AutomergeError::MoveDestinationNotSupported),
+        };
+        <span class="prelude-val">Ok</span>(())
     }
 
     <span class="kw">fn </span>finalize_op(

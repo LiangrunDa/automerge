@@ -892,7 +892,7 @@
                             state.push_mark();
                         }
                     }
-                    OpType::Increment(<span class="kw">_</span>) | OpType::Delete =&gt; {}
+                    OpType::Increment(<span class="kw">_</span>) | OpType::Delete | OpType::Move(<span class="kw">_</span>) =&gt; {}
                 }
             }
             state

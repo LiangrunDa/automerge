@@ -144,6 +144,7 @@
 <a href="#144" id="144">144</a>
 <a href="#145" id="145">145</a>
 <a href="#146" id="146">146</a>
+<a href="#147" id="147">147</a>
 </pre></div><pre class="rust"><code><span class="doccomment">/// Types for converting an OpTree op into a `ChangeOp` or a `DocOp`
 </span><span class="kw">use </span>std::borrow::Cow;
 
@@ -245,6 +246,7 @@
             OpType::Increment(i) =&gt; Cow::Owned(ScalarValue::Int(<span class="kw-2">*</span>i)),
             OpType::Put(s) =&gt; Cow::Borrowed(s),
             OpType::MarkBegin(<span class="kw">_</span>, MarkData { value, .. }) =&gt; Cow::Borrowed(value),
+            OpType::Move(v) =&gt; Cow::Borrowed(v),
         }
     }
 

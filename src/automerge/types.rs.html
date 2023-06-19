@@ -1018,6 +1018,9 @@
 <a href="#1018" id="1018">1018</a>
 <a href="#1019" id="1019">1019</a>
 <a href="#1020" id="1020">1020</a>
+<a href="#1021" id="1021">1021</a>
+<a href="#1022" id="1022">1022</a>
+<a href="#1023" id="1023">1023</a>
 </pre></div><pre class="rust"><code><span class="kw">use </span><span class="kw">crate</span>::error;
 <span class="kw">use </span><span class="kw">crate</span>::legacy <span class="kw">as </span>amp;
 <span class="kw">use </span><span class="kw">crate</span>::text_value::TextValue;
@@ -1234,6 +1237,7 @@
     Put(ScalarValue),
     MarkBegin(bool, MarkData),
     MarkEnd(bool),
+    Move(ScalarValue),
 }
 
 <span class="kw">impl </span>OpType {
@@ -1250,6 +1254,7 @@
             <span class="self">Self</span>::Increment(<span class="kw">_</span>) =&gt; <span class="number">5</span>,
             <span class="self">Self</span>::Make(ObjType::Table) =&gt; <span class="number">6</span>,
             <span class="self">Self</span>::MarkBegin(<span class="kw">_</span>, <span class="kw">_</span>) | <span class="self">Self</span>::MarkEnd(<span class="kw">_</span>) =&gt; <span class="number">7</span>,
+            <span class="self">Self</span>::Move(<span class="kw">_</span>) =&gt; <span class="number">8</span>,
         }
     }
 
@@ -1863,6 +1868,7 @@
             OpType::Delete =&gt; <span class="string">&quot;del&quot;</span>.to_string(),
             OpType::MarkBegin(<span class="kw">_</span>, <span class="kw">_</span>) =&gt; <span class="string">&quot;markBegin&quot;</span>.to_string(),
             OpType::MarkEnd(<span class="kw">_</span>) =&gt; <span class="string">&quot;markEnd&quot;</span>.to_string(),
+            OpType::Move(<span class="kw">_</span>) =&gt; <span class="string">&quot;move&quot;</span>.to_string(),
         }
     }
 
