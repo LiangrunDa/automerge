@@ -2,10 +2,10 @@ name: CI
 on:
   push:
     branches:
-      - main
+      - testcheck2
   pull_request:
     branches:
-      - main
+      - testcheck2
 jobs:
   fmt:
     runs-on: ubuntu-latest
