@@ -2,10 +2,10 @@ name: CI
 on:
   push:
     branches:
-      - main
+      - genericmove2
   pull_request:
     branches:
-      - main
+      - genericmove2
 jobs:
   fmt:
     runs-on: ubuntu-latest
