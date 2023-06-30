@@ -281,7 +281,6 @@
 <a href="#281" id="281">281</a>
 <a href="#282" id="282">282</a>
 <a href="#283" id="283">283</a>
-<a href="#284" id="284">284</a>
 </pre></div><pre class="rust"><code><span class="kw">use </span><span class="kw">crate</span>::types::{ObjId, Op};
 <span class="kw">use </span>fxhash::FxHasher;
 <span class="kw">use </span>std::{borrow::Cow, collections::HashMap, hash::BuildHasherDefault};
@@ -536,7 +535,6 @@
             <span class="kw">crate</span>::OpType::Increment(v) =&gt; <span class="macro">format!</span>(<span class="string">&quot;inc {}&quot;</span>, v),
             <span class="kw">crate</span>::OpType::MarkBegin(<span class="kw">_</span>, m) =&gt; <span class="macro">format!</span>(<span class="string">&quot;markEnd {}&quot;</span>, m),
             <span class="kw">crate</span>::OpType::MarkEnd(m) =&gt; <span class="macro">format!</span>(<span class="string">&quot;markEnd {}&quot;</span>, m),
-            <span class="kw">crate</span>::OpType::Move(v) =&gt; <span class="macro">format!</span>(<span class="string">&quot;move {}&quot;</span>, v),
         };
         <span class="kw">let </span>prop = <span class="kw">match </span>op.key {
             <span class="kw">crate</span>::types::Key::Map(k) =&gt; metadata.props[k].clone(),

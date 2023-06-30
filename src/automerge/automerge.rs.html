@@ -1672,7 +1672,6 @@
 <a href="#1672" id="1672">1672</a>
 <a href="#1673" id="1673">1673</a>
 <a href="#1674" id="1674">1674</a>
-<a href="#1675" id="1675">1675</a>
 </pre></div><pre class="rust"><code><span class="kw">use </span>std::cmp::Ordering;
 <span class="kw">use </span>std::collections::{BTreeSet, HashMap, HashSet};
 <span class="kw">use </span>std::fmt::Debug;
@@ -2771,7 +2770,6 @@
                     <span class="macro">format!</span>(<span class="string">&quot;mark({},{})&quot;</span>, name, value)
                 }
                 OpType::MarkEnd(<span class="kw">_</span>) =&gt; <span class="string">&quot;/mark&quot;</span>.to_string(),
-                OpType::Move(scalar) =&gt; <span class="macro">format!</span>(<span class="string">&quot;move({})&quot;</span>, scalar),
             };
             <span class="kw">let </span>pred: Vec&lt;<span class="kw">_</span>&gt; = op.pred.iter().map(|id| <span class="self">self</span>.to_short_string(<span class="kw-2">*</span>id)).collect();
             <span class="kw">let </span>succ: Vec&lt;<span class="kw">_</span>&gt; = op
@@ -2960,7 +2958,7 @@
                     OpType::MarkEnd(<span class="kw">_</span>) =&gt; {
                         marks.mark_end(o.id, <span class="kw-2">&amp;</span><span class="self">self</span>.ops.m);
                     }
-                    OpType::Increment(<span class="kw">_</span>) | OpType::Delete | OpType::Move(<span class="kw">_</span>) =&gt; {}
+                    OpType::Increment(<span class="kw">_</span>) | OpType::Delete =&gt; {}
                 }
             }
         }
