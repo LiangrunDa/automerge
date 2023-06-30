@@ -49,6 +49,8 @@ export {
   type MarkValue,
   type AutomergeValue,
   type ScalarValue,
+  type PatchSource,
+  type PatchInfo,
 } from "./unstable_types"
 
 import type { Cursor, Mark, MarkRange, MarkValue } from "./unstable_types"
@@ -79,6 +81,7 @@ export {
   changeAt,
   emptyChange,
   loadIncremental,
+  saveIncremental,
   save,
   merge,
   getActorId,
@@ -113,6 +116,8 @@ export type InitOptions<T> = {
   freeze?: boolean
   /** A callback which will be called with the initial patch once the document has finished loading */
   patchCallback?: PatchCallback<T>
+  /** @hidden */
+  unchecked?: boolean
 }
 
 import { ActorId, Doc } from "./stable"
