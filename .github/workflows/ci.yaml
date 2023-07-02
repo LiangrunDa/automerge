@@ -2,10 +2,10 @@ name: CI
 on:
   push:
     branches:
-      - main
+      - moveoptest
   pull_request:
     branches:
-      - main
+      - moveoptest
 jobs:
   fmt:
     runs-on: ubuntu-latest
