@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `automerge/src/types.rs`."><title>types.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-ba5701c5741a7b69.css" id="mainThemeStyle"><div id="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="automerge" data-themes="" data-resource-suffix="" data-rustdoc-version="1.70.0 (90c541806 2023-05-31)" data-search-js="search-e077946657036a58.js" data-settings-js="settings-298e1ea74db45b39.js" data-settings-css="settings-7bfb4c59cc6bc502.css" data-theme-light-css="light-0f8c037637f9eb3e.css" data-theme-dark-css="dark-1097f8e92a01e3cf.css" data-theme-ayu-css="ayu-614652228113ac93.css" ></div><script src="../../static.files/storage-62ce34ea385b278a.js"></script><script defer src="../../static.files/source-script-905937fbbdc8e9ea.js"></script><script defer src="../../source-files.js"></script><script defer src="../../static.files/main-f61008743c98d196.js"></script><noscript><link rel="stylesheet" media="(prefers-color-scheme:light)" href="../../static.files/light-0f8c037637f9eb3e.css"><link rel="stylesheet" media="(prefers-color-scheme:dark)" href="../../static.files/dark-1097f8e92a01e3cf.css"><link rel="stylesheet" href="../../static.files/noscript-13285aec31fa243e.css"></noscript><link rel="icon" href="https:///raw.githubusercontent.com/automerge/automerge/main/img/favicon.ico"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../automerge/index.html"><img src="https://raw.githubusercontent.com/automerge/automerge/main/img/brandmark.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `automerge/src/types.rs`."><title>types.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-f3501f0f5ae15dfb.css" id="mainThemeStyle"><div id="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="automerge" data-themes="" data-resource-suffix="" data-rustdoc-version="1.71.1 (eb26296b5 2023-08-03)" data-search-js="search-4926e5fc22a5646a.js" data-settings-js="settings-de11bff964e9d4e5.js" data-settings-css="settings-8c76f75bfb6bd192.css" data-theme-light-css="light-0f8c037637f9eb3e.css" data-theme-dark-css="dark-1097f8e92a01e3cf.css" data-theme-ayu-css="ayu-614652228113ac93.css" ></div><script src="../../static.files/storage-62ce34ea385b278a.js"></script><script defer src="../../static.files/source-script-11255107d0a65077.js"></script><script defer src="../../source-files.js"></script><script defer src="../../static.files/main-f0540c1d82cde29b.js"></script><noscript><link rel="stylesheet" media="(prefers-color-scheme:light)" href="../../static.files/light-0f8c037637f9eb3e.css"><link rel="stylesheet" media="(prefers-color-scheme:dark)" href="../../static.files/dark-1097f8e92a01e3cf.css"><link rel="stylesheet" href="../../static.files/noscript-13285aec31fa243e.css"></noscript><link rel="icon" href="https:///raw.githubusercontent.com/automerge/automerge/main/img/favicon.ico"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../automerge/index.html"><img src="https://raw.githubusercontent.com/automerge/automerge/main/img/brandmark.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -1018,6 +1018,34 @@
 <a href="#1018" id="1018">1018</a>
 <a href="#1019" id="1019">1019</a>
 <a href="#1020" id="1020">1020</a>
+<a href="#1021" id="1021">1021</a>
+<a href="#1022" id="1022">1022</a>
+<a href="#1023" id="1023">1023</a>
+<a href="#1024" id="1024">1024</a>
+<a href="#1025" id="1025">1025</a>
+<a href="#1026" id="1026">1026</a>
+<a href="#1027" id="1027">1027</a>
+<a href="#1028" id="1028">1028</a>
+<a href="#1029" id="1029">1029</a>
+<a href="#1030" id="1030">1030</a>
+<a href="#1031" id="1031">1031</a>
+<a href="#1032" id="1032">1032</a>
+<a href="#1033" id="1033">1033</a>
+<a href="#1034" id="1034">1034</a>
+<a href="#1035" id="1035">1035</a>
+<a href="#1036" id="1036">1036</a>
+<a href="#1037" id="1037">1037</a>
+<a href="#1038" id="1038">1038</a>
+<a href="#1039" id="1039">1039</a>
+<a href="#1040" id="1040">1040</a>
+<a href="#1041" id="1041">1041</a>
+<a href="#1042" id="1042">1042</a>
+<a href="#1043" id="1043">1043</a>
+<a href="#1044" id="1044">1044</a>
+<a href="#1045" id="1045">1045</a>
+<a href="#1046" id="1046">1046</a>
+<a href="#1047" id="1047">1047</a>
+<a href="#1048" id="1048">1048</a>
 </pre></div><pre class="rust"><code><span class="kw">use </span><span class="kw">crate</span>::error;
 <span class="kw">use </span><span class="kw">crate</span>::legacy <span class="kw">as </span>amp;
 <span class="kw">use </span><span class="kw">crate</span>::text_value::TextValue;
@@ -1234,7 +1262,8 @@
     Put(ScalarValue),
     MarkBegin(bool, MarkData),
     MarkEnd(bool),
-}
+    Move(ScalarValue, bool), <span class="comment">// (scalar value, validity)
+</span>}
 
 <span class="kw">impl </span>OpType {
     <span class="doccomment">/// The index into the action array as specified in [1]
@@ -1250,6 +1279,7 @@
             <span class="self">Self</span>::Increment(<span class="kw">_</span>) =&gt; <span class="number">5</span>,
             <span class="self">Self</span>::Make(ObjType::Table) =&gt; <span class="number">6</span>,
             <span class="self">Self</span>::MarkBegin(<span class="kw">_</span>, <span class="kw">_</span>) | <span class="self">Self</span>::MarkEnd(<span class="kw">_</span>) =&gt; <span class="number">7</span>,
+            <span class="self">Self</span>::Move(<span class="kw">_</span>, <span class="kw">_</span>) =&gt; <span class="number">8</span>,
         }
     }
 
@@ -1265,6 +1295,7 @@
             },
             <span class="number">6 </span>=&gt; <span class="prelude-val">Ok</span>(()),
             <span class="number">7 </span>=&gt; <span class="prelude-val">Ok</span>(()),
+            <span class="number">8 </span>=&gt; <span class="prelude-val">Ok</span>(()),
             <span class="kw">_ </span>=&gt; <span class="prelude-val">Err</span>(error::InvalidOpType::UnknownAction(action)),
         }
     }
@@ -1291,6 +1322,7 @@
                 <span class="prelude-val">Some</span>(name) =&gt; <span class="self">Self</span>::MarkBegin(expand, MarkData { name, value }),
                 <span class="prelude-val">None </span>=&gt; <span class="self">Self</span>::MarkEnd(expand),
             },
+            <span class="number">8 </span>=&gt; <span class="self">Self</span>::Move(value, <span class="bool-val">true</span>),
             <span class="kw">_ </span>=&gt; <span class="macro">unreachable!</span>(<span class="string">&quot;validate_action_and_value returned UnknownAction&quot;</span>),
         }
     }
@@ -1650,6 +1682,8 @@
     <span class="kw">pub</span>(<span class="kw">crate</span>) succ: OpIds,
     <span class="kw">pub</span>(<span class="kw">crate</span>) pred: OpIds,
     <span class="kw">pub</span>(<span class="kw">crate</span>) insert: bool,
+    <span class="kw">pub</span>(<span class="kw">crate</span>) move_from: <span class="prelude-ty">Option</span>&lt;ObjId&gt;,
+    <span class="kw">pub</span>(<span class="kw">crate</span>) move_id: <span class="prelude-ty">Option</span>&lt;ObjId&gt;,
 }
 
 <span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">enum </span>SuccIter&lt;<span class="lifetime">&#39;a</span>&gt; {
@@ -1729,12 +1763,22 @@
         <span class="self">self</span>.action.to_str()
     }
 
+    <span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">fn </span>is_valid(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool {
+        <span class="kw">match </span><span class="self">self</span>.action {
+            OpType::Move(<span class="kw">_</span>, v) =&gt; v,
+            <span class="kw">_ </span>=&gt; <span class="bool-val">true</span>,
+        }
+    }
+
     <span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">fn </span>visible(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool {
         <span class="kw">if </span><span class="self">self</span>.is_inc() || <span class="self">self</span>.is_mark() {
             <span class="bool-val">false
         </span>} <span class="kw">else if </span><span class="self">self</span>.is_counter() {
             <span class="self">self</span>.succ.len() &lt;= <span class="self">self</span>.incs()
-        } <span class="kw">else </span>{
+        <span class="comment">// } else if self.is_move() {
+        //     // TODO: handle invalid successors
+        //     self.is_valid() // &amp;&amp; !self.succ_iter().any(|i| {})
+        </span>} <span class="kw">else </span>{
             <span class="self">self</span>.succ.is_empty()
         }
     }
@@ -1795,6 +1839,10 @@
         <span class="macro">matches!</span>(<span class="kw-2">&amp;</span><span class="self">self</span>.key, Key::Seq(<span class="kw">_</span>))
     }
 
+    <span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">fn </span>is_move(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool {
+        <span class="macro">matches!</span>(<span class="kw-2">&amp;</span><span class="self">self</span>.action, OpType::Move(<span class="kw">_</span>, <span class="kw">_</span>))
+    }
+
     <span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">fn </span>overwrites(<span class="kw-2">&amp;</span><span class="self">self</span>, other: <span class="kw-2">&amp;</span>Op) -&gt; bool {
         <span class="self">self</span>.pred.iter().any(|i| i == <span class="kw-2">&amp;</span>other.id)
     }
@@ -1837,6 +1885,7 @@
     <span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">fn </span>scalar_value(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>ScalarValue&gt; {
         <span class="kw">match </span><span class="kw-2">&amp;</span><span class="self">self</span>.action {
             OpType::Put(scalar) =&gt; <span class="prelude-val">Some</span>(scalar),
+            OpType::Move(scalar, <span class="kw">_</span>) =&gt; <span class="prelude-val">Some</span>(scalar),
             <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
         }
     }
@@ -1849,6 +1898,10 @@
                 Value::Scalar(Cow::Owned(<span class="macro">format!</span>(<span class="string">&quot;markBegin={}&quot;</span>, mark.value).into()))
             }
             OpType::MarkEnd(<span class="kw">_</span>) =&gt; Value::Scalar(Cow::Owned(<span class="string">&quot;markEnd&quot;</span>.into())),
+            OpType::Move(scalar, <span class="kw">_</span>) =&gt; <span class="kw">match </span>scalar {
+                ScalarValue::Null =&gt; Value::Object(ObjType::Map),
+                other =&gt; Value::Scalar(Cow::Borrowed(other)),
+            },
             <span class="kw">_ </span>=&gt; <span class="macro">panic!</span>(<span class="string">&quot;cant convert op into a value - {:?}&quot;</span>, <span class="self">self</span>),
         }
     }
@@ -1863,6 +1916,7 @@
             OpType::Delete =&gt; <span class="string">&quot;del&quot;</span>.to_string(),
             OpType::MarkBegin(<span class="kw">_</span>, <span class="kw">_</span>) =&gt; <span class="string">&quot;markBegin&quot;</span>.to_string(),
             OpType::MarkEnd(<span class="kw">_</span>) =&gt; <span class="string">&quot;markEnd&quot;</span>.to_string(),
+            OpType::Move(v, <span class="kw">_</span>) =&gt; <span class="macro">format!</span>(<span class="string">&quot;move:{}&quot;</span>, v),
         }
     }
 
@@ -2034,6 +2088,8 @@
                 action,
                 succ: OpIds::empty(),
                 pred: OpIds::empty(),
+                move_id: <span class="prelude-val">None</span>,
+                move_from: <span class="prelude-val">None</span>,
             },
         )
     }
