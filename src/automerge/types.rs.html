@@ -1775,9 +1775,9 @@
             <span class="bool-val">false
         </span>} <span class="kw">else if </span><span class="self">self</span>.is_counter() {
             <span class="self">self</span>.succ.len() &lt;= <span class="self">self</span>.incs()
-        <span class="comment">// } else if self.is_move() {
-        //     // TODO: handle invalid successors
-        //     self.is_valid() // &amp;&amp; !self.succ_iter().any(|i| {})
+        } <span class="kw">else if </span><span class="self">self</span>.is_move() {
+            <span class="comment">// TODO: handle invalid successors
+            </span><span class="self">self</span>.is_valid() <span class="comment">// &amp;&amp; !self.succ_iter().any(|i| {})
         </span>} <span class="kw">else </span>{
             <span class="self">self</span>.succ.is_empty()
         }
